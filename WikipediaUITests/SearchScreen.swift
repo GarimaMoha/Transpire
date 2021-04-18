@@ -15,7 +15,7 @@ final class SearchScreen {
     }
     
     private let app = XCUIApplication()
-
+    private lazy var skipButton = app.buttons[Identifier.skipButton].firstMatch
     
     func navigateToSearchTab() -> Bool {
         let searchTab = app
@@ -44,11 +44,11 @@ final class SearchScreen {
     }
     
     func checkfirstUserLogin() -> Bool {
-        let skipButton = app
-            .buttons[Identifier.skipButton]
-            .firstMatch
-        let skipButtonExists = skipButton.waitTillExists()
-        if skipButtonExists {
+        return skipButton.waitTillExists()
+    }
+    
+    func tapSkipButton() -> Bool {
+        if skipButton.exists() {
             skipButton.tap()
             return true
         }
@@ -72,7 +72,7 @@ final class SearchScreen {
             .staticTexts[text]
             .firstMatch
         
-        let cellExists = cell.waitForExistence(timeout: 5.0)
+        let cellExists = cell.waitTillExists()
         if cellExists {
             cell.tap()
             return true
