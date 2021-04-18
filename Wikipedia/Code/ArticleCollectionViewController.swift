@@ -162,6 +162,7 @@ extension ArticleCollectionViewController {
     // Override configure(cell: instead to ensure height calculations are accurate
     override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticleRightAlignedImageCollectionViewCell.identifier, for: indexPath)
+        cell.accessibilityIdentifier = "ArticleCell"
         guard let articleCell = cell as? ArticleRightAlignedImageCollectionViewCell else {
             return cell
         }

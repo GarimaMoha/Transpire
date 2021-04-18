@@ -38,6 +38,11 @@
                BlueprintName = "WikipediaUITests"
                ReferencedContainer = "container:Wikipedia.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "WikipediaUITests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
